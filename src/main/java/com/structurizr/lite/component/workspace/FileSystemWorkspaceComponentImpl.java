@@ -9,7 +9,6 @@ import com.structurizr.lite.component.search.SearchComponent;
 import com.structurizr.lite.domain.WorkspaceMetaData;
 import com.structurizr.lite.util.DateUtils;
 import com.structurizr.lite.util.Image;
-import com.structurizr.util.DslTemplate;
 import com.structurizr.util.StringUtils;
 import com.structurizr.util.WorkspaceUtils;
 import com.structurizr.validation.WorkspaceScopeValidatorFactory;
@@ -76,7 +75,7 @@ class FileSystemWorkspaceComponentImpl implements WorkspaceComponent {
             File json = new File(getDataDirectory(1), filename + ".json");
 
             if (!dsl.exists() && !json.exists()) {
-                writeToFile(new File(dataDirectory, filename + ".dsl"), DslTemplate.generate("Name", "Description"));
+                writeToFile(new File(dataDirectory, filename + ".dsl"), "workspace { model { } }");
             }
         }
 
